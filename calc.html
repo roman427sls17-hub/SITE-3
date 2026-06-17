@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Фомин Роман, ИВТ-25">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <script>
+        function plus() {
+            var a = +document.form1.T1.value;
+            var b = +document.form1.T2.value;
+            document.form1.T3.value = a + b;
+        }
+        function minus() {
+            var a = +document.form1.T1.value;
+            var b = +document.form1.T2.value;
+            document.form1.T3.value = a - b;
+        }
+        function proizv() {
+            var a = +document.form1.T1.value;
+            var b = +document.form1.T2.value;
+            document.form1.T3.value = a * b;
+        }
+        function delen() {
+            var a = +document.form1.T1.value;
+            var b = +document.form1.T2.value;
+            if (b != 0) {
+                document.form1.T3.value = a / b;
+            } else {
+                alert("Делить на ноль нельзя!");
+                document.form1.T2.focus();
+                document.form1.T2.select();
+            }
+        }
+        function stepen() {
+            var a = +document.form1.T1.value;
+            var b = +document.form1.T2.value;
+            document.form1.T3.value = Math.pow(a, b);
+        }
+        function modul() {
+            var a = +document.form1.T1.value;
+            document.form1.T3.value = Math.abs(a);
+        }
+        function koren() {
+            var a = +document.form1.T1.value;
+            if (a >= 0) {
+                document.form1.T3.value = Math.sqrt(a);
+            } else {
+                alert("Нельзя извлечь корень из отрицательного числа!");
+                document.form1.T1.focus();
+                document.form1.T1.select();
+            }
+        }
+        function exponent() {
+            var a = +document.form1.T1.value;
+            document.form1.T3.value = Math.exp(a);
+        }
+        function logarifm() {
+            var a = +document.form1.T1.value;
+            if (a >= 1) {
+                document.form1.T3.value = Math.log(a);
+            } else {
+                alert("Нельзя рассчитать логарифм для значения меньше 1!");
+                document.form1.T1.focus();
+                document.form1.T1.select();
+            }
+        }
+        function sinus() {
+            var a = +document.form1.T1.value;
+            document.form1.T3.value = Math.sin(a);
+        }
+        function cosinus() {
+            var a = +document.form1.T1.value;
+            document.form1.T3.value = Math.cos(a);
+        }
+        function tangens() {
+            var a = +document.form1.T1.value;
+            document.form1.T3.value = Math.tan(a);
+        }
+        function cotangens() {
+            var a = +document.form1.T1.value;
+            if (a > 0) {
+                document.form1.T3.value = 1 / Math.tan(a);
+            } else {
+                alert("Нельзя рассчитать котангенс из нуля!");
+                document.form1.T1.focus();
+                document.form1.T1.select();
+            }
+        }
+        function tochnost() {
+            var a = +prompt("Введите точность", "2");
+            var b = +document.form1.T3.value;
+            document.form1.T3.value = b.toFixed(a);
+        }
+        function okruglverh() {
+            var a = +document.form1.T3.value;
+            document.form1.T3.value = Math.ceil(a);
+        }
+        function okruglvniz() {
+            var a = +document.form1.T3.value;
+            document.form1.T3.value = Math.floor(a);
+        }
+        function okrugl() {
+            var a = +document.form1.T3.value;
+            document.form1.T3.value = Math.round(a);
+        }
+        function steer() {
+            document.form1.T1.value = 0;
+            document.form1.T2.value = 0;
+            document.form1.T3.value = 0;
+            document.form1.T1.focus();
+            document.form1.T1.select();
+        }
+    </script>
+</head>
+<body>
+
+<div id="main">
+    <div id="header">
+        <h1><a href="index.html">Мой первый простой сайт</a></h1>
+    </div>
+    <div id="content">
+        <div id="left">
+            <h2>Навигация</h2>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="news.html">Новости</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+                <li><a href="secret.html">Секретная страница</a></li>
+                <li><a href="sum.html">Сумматор</a></li>
+                <li><a href="calc.html">Калькулятор</a></li>
+            </ul>
+            <h2>Ссылки</h2>
+            <ul>
+                <li><a href="https://yandex.ru" target="_blank">Яндекс</a></li>
+                <li><a href="https://google.com" target="_blank">Google</a></li>
+            </ul>
+            <h2>Вход</h2>
+            <form action="index.html" method="post">
+                Пользователь:
+                <div align="right"><input name="login" type="text"></div>
+                Пароль:
+                <div align="right"><input name="pwd" type="password"></div>
+                <div align="right"><input name="ok" type="submit" value="Войти"></div>
+            </form>
+        </div>
+        <div id="right">
+            <h2>Веб-калькулятор</h2>
+            <form name="form1">
+                <table width="50%" align="center" border="1" cellpadding="5">
+                    <tr>
+                        <td colspan="4" align="center">
+                            <input type="text" name="T1" value="0" size="10">
+                            <input type="text" name="T2" value="0" size="10">
+                            <input type="text" name="T3" value="0" size="10" readonly>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="+" onclick="plus()"></td>
+                        <td><input type="button" value="-" onclick="minus()"></td>
+                        <td><input type="button" value="*" onclick="proizv()"></td>
+                        <td><input type="button" value="/" onclick="delen()"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="X^y" onclick="stepen()"></td>
+                        <td><input type="button" value="ABS" onclick="modul()"></td>
+                        <td><input type="button" value="SQRT" onclick="koren()"></td>
+                        <td><input type="button" value="exp" onclick="exponent()"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="ln" onclick="logarifm()"></td>
+                        <td><input type="button" value="sin" onclick="sinus()"></td>
+                        <td><input type="button" value="cos" onclick="cosinus()"></td>
+                        <td><input type="button" value="tg" onclick="tangens()"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="ctg" onclick="cotangens()"></td>
+                        <td><input type="button" value="Точность" onclick="tochnost()"></td>
+                        <td><input type="button" value="CE" onclick="steer()"></td>
+                        <td><input type="button" value="Закрыть" onclick="window.close()"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="button" value="Округлить вверх" onclick="okruglverh()"></td>
+                        <td colspan="2"><input type="button" value="Округлить вниз" onclick="okruglvniz()"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" align="center">
+                            <input type="button" value="Округлить" onclick="okrugl()">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div style="clear: both;"></div>
+        <div id="footer">
+            &copy; Фомин Роман, ИВТ-25, Алчевск
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

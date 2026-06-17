@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Фомин Роман, ИВТ-25">
+    <title>Сумматор</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <script>
+        function sum() {
+            var a = +document.form1.num1.value;
+            var b = +document.form1.num2.value;
+            document.form1.result.value = a + b;
+        }
+        function exit() {
+            if (confirm("Закрыть окно?")) {
+                window.close();
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div id="main">
+    <div id="header">
+        <h1><a href="index.html">Мой первый простой сайт</a></h1>
+    </div>
+    <div id="content">
+        <div id="left">
+            <h2>Навигация</h2>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="news.html">Новости</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+                <li><a href="secret.html">Секретная страница</a></li>
+                <li><a href="sum.html">Сумматор</a></li>
+                <li><a href="calc.html">Калькулятор</a></li>
+            </ul>
+            <h2>Ссылки</h2>
+            <ul>
+                <li><a href="https://yandex.ru" target="_blank">Яндекс</a></li>
+                <li><a href="https://google.com" target="_blank">Google</a></li>
+            </ul>
+            <h2>Вход</h2>
+            <form action="index.html" method="post">
+                Пользователь:
+                <div align="right"><input name="login" type="text"></div>
+                Пароль:
+                <div align="right"><input name="pwd" type="password"></div>
+                <div align="right"><input name="ok" type="submit" value="Войти"></div>
+            </form>
+        </div>
+        <div id="right">
+            <h2>Сумматор</h2>
+            <form name="form1">
+                <p>Число 1: <input type="text" name="num1" size="10"></p>
+                <p>Число 2: <input type="text" name="num2" size="10"></p>
+                <p>Результат: <input type="text" name="result" size="10" readonly></p>
+                <p>
+                    <input type="button" value="Рассчитать" onclick="sum()">
+                    <input type="reset" value="Очистить">
+                    <input type="button" value="Закрыть" onclick="exit()">
+                </p>
+            </form>
+        </div>
+        <div style="clear: both;"></div>
+        <div id="footer">
+            &copy; Фомин Роман, ИВТ-25, Алчевск
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
